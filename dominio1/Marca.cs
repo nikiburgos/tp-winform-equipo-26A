@@ -6,12 +6,6 @@ using System.Threading.Tasks;
 
 namespace dominio
 {
-<<<<<<< HEAD
-    internal class Marca
-    {
-    }
-}
-=======
     public class Marca
     {
         public int Id { get; set; }
@@ -23,4 +17,3 @@ namespace dominio
     }
 
 }
->>>>>>> 2f89ea994b6d505e66ef5e8ece3d7a871f8d83f6

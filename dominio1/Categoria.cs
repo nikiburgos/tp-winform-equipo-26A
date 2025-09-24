@@ -6,21 +6,14 @@ using System.Threading.Tasks;
 
 namespace dominio
 {
-<<<<<<< HEAD
-    internal class Marca
-    {
-    }
-}
-=======
-    public class Marca
+    public class Categoria
     {
         public int Id { get; set; }
         public string Descripcion { get; set; }
-        public override string ToString() 
+        public override string ToString()
+        // Esto es necesario para que se muestre la descripcion de la Categoria, y no el nombre de la clase!! 
         {
             return Descripcion;
         }
     }
-
 }
->>>>>>> 2f89ea994b6d505e66ef5e8ece3d7a871f8d83f6
