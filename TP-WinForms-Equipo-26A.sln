@@ -5,6 +5,11 @@ VisualStudioVersion = 17.14.36518.9 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TP-WinForms-Equipo-26A", "TP-WinForms-Equipo-26A\TP-WinForms-Equipo-26A.csproj", "{BA1D7DF9-1F0F-4806-B772-AF1622DB4A92}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dominio", "dominio1\dominio.csproj", "{D1091D15-D4C2-44A5-80EF-B8BA73BAACFF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BA1D7DF9-1F0F-4806-B772-AF1622DB4A92} = {BA1D7DF9-1F0F-4806-B772-AF1622DB4A92}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +20,10 @@ Global
 		{BA1D7DF9-1F0F-4806-B772-AF1622DB4A92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA1D7DF9-1F0F-4806-B772-AF1622DB4A92}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA1D7DF9-1F0F-4806-B772-AF1622DB4A92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1091D15-D4C2-44A5-80EF-B8BA73BAACFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1091D15-D4C2-44A5-80EF-B8BA73BAACFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1091D15-D4C2-44A5-80EF-B8BA73BAACFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1091D15-D4C2-44A5-80EF-B8BA73BAACFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
