@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36518.9 d17.14
+VisualStudioVersion = 17.14.36518.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TP-WinForms-Equipo-26A", "TP-WinForms-Equipo-26A\TP-WinForms-Equipo-26A.csproj", "{BA1D7DF9-1F0F-4806-B772-AF1622DB4A92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dominio", "dominio\dominio.csproj", "{0D82706B-2790-4B09-BD17-8BB9215DB5D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{BA1D7DF9-1F0F-4806-B772-AF1622DB4A92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA1D7DF9-1F0F-4806-B772-AF1622DB4A92}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA1D7DF9-1F0F-4806-B772-AF1622DB4A92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D82706B-2790-4B09-BD17-8BB9215DB5D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D82706B-2790-4B09-BD17-8BB9215DB5D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D82706B-2790-4B09-BD17-8BB9215DB5D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D82706B-2790-4B09-BD17-8BB9215DB5D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
