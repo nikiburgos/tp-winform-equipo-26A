@@ -28,36 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblListado = new System.Windows.Forms.Label();
             this.dgvArticulos = new System.Windows.Forms.DataGridView();
+            this.pbListado = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbListado)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lblListado
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(288, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(221, 29);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Listado de artículos";
+            this.lblListado.AutoSize = true;
+            this.lblListado.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblListado.Location = new System.Drawing.Point(288, 9);
+            this.lblListado.Name = "lblListado";
+            this.lblListado.Size = new System.Drawing.Size(221, 29);
+            this.lblListado.TabIndex = 0;
+            this.lblListado.Text = "Listado de artículos";
             // 
             // dgvArticulos
             // 
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulos.Location = new System.Drawing.Point(12, 41);
             this.dgvArticulos.Name = "dgvArticulos";
-            this.dgvArticulos.Size = new System.Drawing.Size(735, 397);
+            this.dgvArticulos.Size = new System.Drawing.Size(735, 348);
             this.dgvArticulos.TabIndex = 1;
+            this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
+            // 
+            // pbListado
+            // 
+            this.pbListado.Location = new System.Drawing.Point(753, 41);
+            this.pbListado.Name = "pbListado";
+            this.pbListado.Size = new System.Drawing.Size(309, 348);
+            this.pbListado.TabIndex = 2;
+            this.pbListado.TabStop = false;
             // 
             // FrmListadoArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(761, 450);
+            this.ClientSize = new System.Drawing.Size(1078, 402);
+            this.Controls.Add(this.pbListado);
             this.Controls.Add(this.dgvArticulos);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblListado);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FrmListadoArticulos";
@@ -65,6 +77,7 @@
             this.Text = "Listado de artículos";
             this.Load += new System.EventHandler(this.FrmListadoArticulos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbListado)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -72,7 +85,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblListado;
         private System.Windows.Forms.DataGridView dgvArticulos;
+        private System.Windows.Forms.PictureBox pbListado;
     }
 }
