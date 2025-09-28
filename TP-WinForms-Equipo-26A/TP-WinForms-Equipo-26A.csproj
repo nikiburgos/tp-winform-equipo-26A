@@ -46,16 +46,70 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="FrmAgregarArticulos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FrmAgregarArticulos.Designer.cs">
+      <DependentUpon>FrmAgregarArticulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBusquedaArticulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBusquedaArticulos.Designer.cs">
+      <DependentUpon>FrmBusquedaArticulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDetalleArticulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDetalleArticulos.Designer.cs">
+      <DependentUpon>FrmDetalleArticulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEliminarArticulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEliminarArticulos.Designer.cs">
+      <DependentUpon>FrmEliminarArticulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmListadoArticulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoArticulos.Designer.cs">
+      <DependentUpon>FrmListadoArticulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmModificarArticulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmModificarArticulos.Designer.cs">
+      <DependentUpon>FrmModificarArticulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPrincipal.Designer.cs">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="FrmAgregarArticulos.resx">
+      <DependentUpon>FrmAgregarArticulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBusquedaArticulos.resx">
+      <DependentUpon>FrmBusquedaArticulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDetalleArticulos.resx">
+      <DependentUpon>FrmDetalleArticulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEliminarArticulos.resx">
+      <DependentUpon>FrmEliminarArticulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoArticulos.resx">
+      <DependentUpon>FrmListadoArticulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmModificarArticulos.resx">
+      <DependentUpon>FrmModificarArticulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPrincipal.resx">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

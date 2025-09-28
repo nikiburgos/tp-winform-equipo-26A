@@ -1,6 +1,6 @@
 ﻿namespace TP_WinForms_Equipo_26A
 {
-    partial class Form1
+    partial class FrmEliminarArticulos
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,16 @@
         {
             this.SuspendLayout();
             // 
-            // Form1
+            // FrmEliminarArticulos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.Name = "FrmEliminarArticulos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Eliminar Artículos";
             this.ResumeLayout(false);
 
         }
@@ -45,4 +47,3 @@
         #endregion
     }
 }
-
