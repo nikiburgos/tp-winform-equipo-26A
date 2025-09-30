@@ -39,38 +39,43 @@
             // 
             this.lblListado.AutoSize = true;
             this.lblListado.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblListado.Location = new System.Drawing.Point(288, 9);
+            this.lblListado.Location = new System.Drawing.Point(384, 11);
+            this.lblListado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblListado.Name = "lblListado";
-            this.lblListado.Size = new System.Drawing.Size(221, 29);
+            this.lblListado.Size = new System.Drawing.Size(273, 36);
             this.lblListado.TabIndex = 0;
             this.lblListado.Text = "Listado de artículos";
             // 
             // dgvArticulos
             // 
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvArticulos.Location = new System.Drawing.Point(12, 41);
+            this.dgvArticulos.Location = new System.Drawing.Point(16, 50);
+            this.dgvArticulos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvArticulos.Name = "dgvArticulos";
-            this.dgvArticulos.Size = new System.Drawing.Size(735, 348);
+            this.dgvArticulos.RowHeadersWidth = 51;
+            this.dgvArticulos.Size = new System.Drawing.Size(980, 428);
             this.dgvArticulos.TabIndex = 1;
             this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
             // pbListado
             // 
-            this.pbListado.Location = new System.Drawing.Point(753, 41);
+            this.pbListado.Location = new System.Drawing.Point(1014, 50);
+            this.pbListado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbListado.Name = "pbListado";
-            this.pbListado.Size = new System.Drawing.Size(309, 348);
+            this.pbListado.Size = new System.Drawing.Size(396, 428);
             this.pbListado.TabIndex = 2;
             this.pbListado.TabStop = false;
             // 
             // FrmListadoArticulos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1078, 402);
+            this.ClientSize = new System.Drawing.Size(1437, 495);
             this.Controls.Add(this.pbListado);
             this.Controls.Add(this.dgvArticulos);
             this.Controls.Add(this.lblListado);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "FrmListadoArticulos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
