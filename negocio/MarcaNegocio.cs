@@ -6,9 +6,9 @@ namespace negocio
 {
     public class MarcaNegocio
     {
-        public List<Marca> listar()
+        public List<Marca> Listar()
         {
-            List<Marca> lista = new List<Marca>();
+            List<Marca> marcas = new List<Marca>();
             AccesoDatos datos = new AccesoDatos();
 
             try
@@ -18,14 +18,35 @@ namespace negocio
 
                 while (datos.Lector.Read())
                 {
-                    Marca aux = new Marca();
-                    aux.Id = (int)datos.Lector["Id"];
-                    aux.Descripcion = (string)datos.Lector["Descripcion"];
-
-                    lista.Add(aux);
+                    Marca marca = new Marca
+                    {
+                        Id = (int)datos.Lector["Id"],
+                        Descripcion = (string)datos.Lector["Descripcion"]
+                    };
+                    marcas.Add(marca);
                 }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
 
-                return lista;
+            return marcas;
+        }
+
+        public void Agregar(Marca nuevaMarca)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("INSERT INTO MARCAS (Descripcion) VALUES (@descripcion)");
+                datos.setearParametro("@descripcion", nuevaMarca.Descripcion);
+                datos.ejecutarAccion();
             }
             catch (Exception ex)
             {
@@ -37,4 +58,4 @@ namespace negocio
             }
         }
     }
-}   
+}

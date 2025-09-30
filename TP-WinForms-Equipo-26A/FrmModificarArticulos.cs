@@ -27,10 +27,10 @@ namespace TP_WinForms_Equipo_26A
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
             try
             {
-                cboCategoria.DataSource = categoriaNegocio.listar();
+                cboCategoria.DataSource = categoriaNegocio.Listar();
                 cboCategoria.ValueMember = "Id";
                 cboCategoria.DisplayMember = "Descripcion";
-                cboMarca.DataSource = marcaNegocio.listar();
+                cboMarca.DataSource = marcaNegocio.Listar();
                 cboMarca.ValueMember = "Id";
                 cboMarca.DisplayMember = "Descripcion";
 
@@ -129,6 +129,12 @@ namespace TP_WinForms_Equipo_26A
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnCategorias_Click(object sender, EventArgs e)
+        {
+            FrmCategorias frmCategorias = new FrmCategorias();
+            frmCategorias.ShowDialog();
         }
     }
 }
