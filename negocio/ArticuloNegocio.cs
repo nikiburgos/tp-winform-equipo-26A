@@ -156,19 +156,22 @@ namespace negocio
                 {
                     foreach (Imagen img in imagenes)
                     {
+                        AccesoDatos datosImagen = new AccesoDatos();
                         try
                         {
-                            AccesoDatos datosImagen = new AccesoDatos();
                             datosImagen.setearConsulta("INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (@idArticulo, @imagenUrl)");
                             datosImagen.setearParametro("@idArticulo", articulo.Id);
                             datosImagen.setearParametro("@imagenUrl", img.Url);
                             datosImagen.ejecutarAccion();
-                            datosImagen.cerrarConexion();
                         }
                         catch (Exception imgEx)
                         {
                             // Registrar el error de la imagen pero continuar con el flujo principal
                             Console.WriteLine("Error al insertar imagen: " + imgEx.Message);
+                        }
+                        finally
+                        {
+                            datosImagen.cerrarConexion();
                         }
                     }
                 }

@@ -43,8 +43,10 @@ namespace negocio
             comando.Connection = conexion;
             try
             {
-                //se abre la conexion y ejecuta la lectura. Minuto 1h 42s de la clase 5 del profe Maxi. 
-                conexion.Open();
+                if (conexion.State != System.Data.ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
                 lector = comando.ExecuteReader();
             }
             catch (Exception ex)
@@ -58,7 +60,10 @@ namespace negocio
             comando.Connection = conexion;
             try
             {
-                conexion.Open();
+                if (conexion.State != System.Data.ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
                 //ejecuta una acción que no sea de lectura (insert, delete, update)
                 comando.ExecuteNonQuery();
 
@@ -75,7 +80,10 @@ namespace negocio
             comando.Connection = conexion;
             try
             {
-                conexion.Open();
+                if (conexion.State != System.Data.ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
                 //ejecuta una acción que no sea de lectura (insert, delete, update)
                 return (int)comando.ExecuteScalar();
 

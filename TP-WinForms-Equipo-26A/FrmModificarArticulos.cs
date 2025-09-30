@@ -27,10 +27,10 @@ namespace TP_WinForms_Equipo_26A
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
             try
             {
-                cboCategoria.DataSource = categoriaNegocio.listar();
+                cboCategoria.DataSource = categoriaNegocio.Listar();
                 cboCategoria.ValueMember = "Id";
                 cboCategoria.DisplayMember = "Descripcion";
-                cboMarca.DataSource = marcaNegocio.listar();
+                cboMarca.DataSource = marcaNegocio.Listar();
                 cboMarca.ValueMember = "Id";
                 cboMarca.DisplayMember = "Descripcion";
 
@@ -58,22 +58,35 @@ namespace TP_WinForms_Equipo_26A
             listaImagenes = imagenNegocio.listImagenes().FindAll(img => img.IdArticulo == articulo.Id);
             if (listaImagenes.Count > 0)
             {
-                try
-                {
-                    pbImagen.Load(listaImagenes[0].Url);
-                }
-                catch (System.Net.WebException)
-                {
-                    MostrarImagenPorDefecto();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al cargar la imagen: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    MostrarImagenPorDefecto();
-                }
+                MostrarImagen(listaImagenes[0].Url);
             }
             else
             {
+                MostrarImagenPorDefecto();
+            }
+        }
+
+        private void MostrarImagen(string url)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(url))
+                {
+                    pbImagen.Load(url);
+                }
+                else
+                {
+                    MostrarImagenPorDefecto();
+                }
+            }
+            catch (System.Net.WebException webEx)
+            {
+                Console.WriteLine($"Error de red al cargar la imagen: {webEx.Message}");
+                MostrarImagenPorDefecto();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al cargar la imagen: {ex.Message}");
                 MostrarImagenPorDefecto();
             }
         }
@@ -116,6 +129,12 @@ namespace TP_WinForms_Equipo_26A
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnCategorias_Click(object sender, EventArgs e)
+        {
+            FrmCategorias frmCategorias = new FrmCategorias();
+            frmCategorias.ShowDialog();
         }
     }
 }

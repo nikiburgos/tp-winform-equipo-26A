@@ -37,6 +37,7 @@
             this.pbImagen = new System.Windows.Forms.PictureBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnCategorias = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
             this.SuspendLayout();
             // 
@@ -115,6 +116,16 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // btnCategorias
+            // 
+            this.btnCategorias.Location = new System.Drawing.Point(12, 300);
+            this.btnCategorias.Name = "btnCategorias";
+            this.btnCategorias.Size = new System.Drawing.Size(150, 30);
+            this.btnCategorias.TabIndex = 5;
+            this.btnCategorias.Text = "Gestionar Categorías";
+            this.btnCategorias.UseVisualStyleBackColor = true;
+            this.btnCategorias.Click += new System.EventHandler(this.btnCategorias_Click);
+            // 
             // FrmModificarArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -129,6 +140,7 @@
             this.Controls.Add(this.pbImagen);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnCategorias);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FrmModificarArticulos";
@@ -152,5 +164,6 @@
         private System.Windows.Forms.PictureBox pbImagen;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnCategorias;
     }
 }

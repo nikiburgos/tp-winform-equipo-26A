@@ -6,9 +6,9 @@ namespace negocio
 {
     public class CategoriaNegocio
     {
-        public List<Categoria> listar()
+        public List<Categoria> Listar()
         {
-            List<Categoria> lista = new List<Categoria>();
+            List<Categoria> categorias = new List<Categoria>();
             AccesoDatos datos = new AccesoDatos();
 
             try
@@ -18,14 +18,35 @@ namespace negocio
 
                 while (datos.Lector.Read())
                 {
-                    Categoria aux = new Categoria();
-                    aux.Id = (int)datos.Lector["Id"];
-                    aux.Descripcion = (string)datos.Lector["Descripcion"];
-
-                    lista.Add(aux);
+                    Categoria categoria = new Categoria
+                    {
+                        Id = (int)datos.Lector["Id"],
+                        Descripcion = (string)datos.Lector["Descripcion"]
+                    };
+                    categorias.Add(categoria);
                 }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
 
-                return lista;
+            return categorias;
+        }
+
+        public void Agregar(Categoria nuevaCategoria)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("INSERT INTO CATEGORIAS (Descripcion) VALUES (@descripcion)");
+                datos.setearParametro("@descripcion", nuevaCategoria.Descripcion);
+                datos.ejecutarAccion();
             }
             catch (Exception ex)
             {
@@ -37,4 +58,4 @@ namespace negocio
             }
         }
     }
-}   
+}
