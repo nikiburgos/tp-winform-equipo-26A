@@ -53,5 +53,17 @@ namespace TP_WinForms_Equipo_26A
                 pbListado.LoadAsync("https://via.placeholder.com/150");
             }
         }
+
+        public Articulo ArticuloSeleccionado { get; private set; }
+
+        private void dgvArticulos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvArticulos.CurrentRow != null)
+            {
+                ArticuloSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+        }
     }
 }
