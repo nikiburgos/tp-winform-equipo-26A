@@ -51,14 +51,14 @@ namespace TP_WinForms_Equipo_26A
             ventana.ShowDialog();
         }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-            FrmListadoArticulos listado = new FrmListadoArticulos(); listado.ShowDialog();
-            if (listado.ShowDialog() == DialogResult.OK && listado.ArticuloSeleccionado != null)
-            {
-                FrmDetalleArticulos detalle = new FrmDetalleArticulos(listado.ArticuloSeleccionado);
-                detalle.ShowDialog();
-            }
-        }
+        //private void button6_Click(object sender, EventArgs e)
+        //{
+        //    FrmListadoArticulos listado = new FrmListadoArticulos(); listado.ShowDialog();
+        //    if (listado.ShowDialog() == DialogResult.OK && listado.ArticuloSeleccionado != null)
+        //    {
+        //        FrmDetalleArticulos detalle = new FrmDetalleArticulos(listado.ArticuloSeleccionado);
+        //        detalle.ShowDialog();
+        //    }
+        //}
     }
 }

@@ -33,7 +33,7 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnDetalle = new System.Windows.Forms.Button();
+            //this.btnDetalle = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -94,14 +94,14 @@
             // 
             // btnDetalle
             // 
-            this.btnDetalle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDetalle.Location = new System.Drawing.Point(55, 323);
-            this.btnDetalle.Name = "btnDetalle";
-            this.btnDetalle.Size = new System.Drawing.Size(338, 42);
-            this.btnDetalle.TabIndex = 5;
-            this.btnDetalle.Text = "Ver detalle de un artículo";
-            this.btnDetalle.UseVisualStyleBackColor = true;
-            this.btnDetalle.Click += new System.EventHandler(this.button6_Click);
+            //this.btnDetalle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //this.btnDetalle.Location = new System.Drawing.Point(55, 323);
+            //this.btnDetalle.Name = "btnDetalle";
+            //this.btnDetalle.Size = new System.Drawing.Size(338, 42);
+            //this.btnDetalle.TabIndex = 5;
+            //this.btnDetalle.Text = "Ver detalle de un artículo";
+            //this.btnDetalle.UseVisualStyleBackColor = true;
+            //this.btnDetalle.Click += new System.EventHandler(this.button6_Click);
             // 
             // label1
             // 
@@ -119,7 +119,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(438, 401);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnDetalle);
+            //this.Controls.Add(this.btnDetalle);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
@@ -143,7 +143,7 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnDetalle;
+        //private System.Windows.Forms.Button btnDetalle;
         private System.Windows.Forms.Label label1;
     }
 }

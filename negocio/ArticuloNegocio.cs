@@ -46,6 +46,27 @@ namespace negocio
 
                     aux.Precio = (decimal)datos.Lector["Precio"];
 
+                    // Inicializar la lista de imágenes
+                    aux.Imagen = new List<Imagen>();
+
+                    // Cargar las imágenes asociadas al artículo
+                    AccesoDatos datosImagen = new AccesoDatos();
+                    datosImagen.setearConsulta("SELECT Id, IdArticulo, ImagenUrl FROM IMAGENES WHERE IdArticulo = @idArticulo");
+                    datosImagen.setearParametro("@idArticulo", aux.Id);
+                    datosImagen.ejecutarLectura();
+
+                    while (datosImagen.Lector.Read())
+                    {
+                        Imagen img = new Imagen();
+                        img.Id = (int)datosImagen.Lector["Id"];
+                        img.IdArticulo = (int)datosImagen.Lector["IdArticulo"];
+                        img.Url = (string)datosImagen.Lector["ImagenUrl"];
+
+                        aux.Imagen.Add(img);
+                    }
+
+                    datosImagen.cerrarConexion();
+
                     lista.Add(aux);
                 }
                 return lista;
