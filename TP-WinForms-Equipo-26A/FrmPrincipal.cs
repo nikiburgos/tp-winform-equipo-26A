@@ -1,4 +1,5 @@
-﻿using System;
+﻿using dominio; // Agregado para acceder a la clase Articulo
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -39,17 +40,30 @@ namespace TP_WinForms_Equipo_26A
             ventana.ShowDialog();
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            FrmModificarArticulos ventana = new FrmModificarArticulos();    
-            ventana.ShowDialog();
-        }
+        //private void button4_Click(object sender, EventArgs e)
+        //{
+        //    // Abrir un formulario de selección de artículos
+        //    FrmSeleccionarArticulo seleccionarArticuloForm = new FrmSeleccionarArticulo();
+        //    if (seleccionarArticuloForm.ShowDialog() == DialogResult.OK)
+        //    {
+        //        Articulo articuloSeleccionado = seleccionarArticuloForm.ArticuloSeleccionado;
+        //        if (articuloSeleccionado != null)
+        //        {
+        //            FrmModificarArticulos ventana = new FrmModificarArticulos(articuloSeleccionado);
+        //            ventana.ShowDialog();
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("Debe seleccionar un artículo para modificar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //        }
+        //    }
+        //}
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            FrmEliminarArticulos ventana = new FrmEliminarArticulos();  
-            ventana.ShowDialog();
-        }
+        //private void button5_Click(object sender, EventArgs e)
+        //{
+        //    FrmEliminarArticulos ventana = new FrmEliminarArticulos();  
+        //    ventana.ShowDialog();
+        //}
 
         //private void button6_Click(object sender, EventArgs e)
         //{

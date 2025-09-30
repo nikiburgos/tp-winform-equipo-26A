@@ -51,21 +51,26 @@ namespace negocio
 
                     // Cargar las imágenes asociadas al artículo
                     AccesoDatos datosImagen = new AccesoDatos();
-                    datosImagen.setearConsulta("SELECT Id, IdArticulo, ImagenUrl FROM IMAGENES WHERE IdArticulo = @idArticulo");
-                    datosImagen.setearParametro("@idArticulo", aux.Id);
-                    datosImagen.ejecutarLectura();
-
-                    while (datosImagen.Lector.Read())
+                    try
                     {
-                        Imagen img = new Imagen();
-                        img.Id = (int)datosImagen.Lector["Id"];
-                        img.IdArticulo = (int)datosImagen.Lector["IdArticulo"];
-                        img.Url = (string)datosImagen.Lector["ImagenUrl"];
+                        datosImagen.setearConsulta("SELECT Id, IdArticulo, ImagenUrl FROM IMAGENES WHERE IdArticulo = @idArticulo");
+                        datosImagen.setearParametro("@idArticulo", aux.Id);
+                        datosImagen.ejecutarLectura();
 
-                        aux.Imagen.Add(img);
+                        while (datosImagen.Lector.Read())
+                        {
+                            Imagen img = new Imagen();
+                            img.Id = (int)datosImagen.Lector["Id"];
+                            img.IdArticulo = (int)datosImagen.Lector["IdArticulo"];
+                            img.Url = (string)datosImagen.Lector["ImagenUrl"];
+
+                            aux.Imagen.Add(img);
+                        }
                     }
-
-                    datosImagen.cerrarConexion();
+                    finally
+                    {
+                        datosImagen.cerrarConexion();
+                    }
 
                     lista.Add(aux);
                 }
@@ -124,18 +129,19 @@ namespace negocio
             }
         }
 
-        public void modificar(Articulo articulo, List<Imagen> listaImagenes)
+        public void modificar(Articulo articulo, List<Imagen> imagenes)
         {
             AccesoDatos datos = new AccesoDatos();
+
             try
             {
                 // Actualizar el artículo
-                datos.setearConsulta("UPDATE ARTICULOS SET Codigo = @codigo, Nombre = @nombre, Descripcion = @descripcion, IdMarca = @idMarca, IdCategoria = @idCategoria, Precio = @precio WHERE Id = @id");
+                datos.setearConsulta("UPDATE ARTICULOS SET Codigo = @codigo, Nombre = @nombre, Descripcion = @Descripcion, IdMarca = @IdMarca, IdCategoria = @IdCategoria, Precio = @precio WHERE Id = @id;");
                 datos.setearParametro("@codigo", articulo.Codigo);
                 datos.setearParametro("@nombre", articulo.Nombre);
-                datos.setearParametro("@descripcion", articulo.Descripcion);
-                datos.setearParametro("@idMarca", articulo.Marca.Id);
-                datos.setearParametro("@idCategoria", articulo.Categoria.Id);
+                datos.setearParametro("@Descripcion", articulo.Descripcion);
+                datos.setearParametro("@IdMarca", articulo.Marca.Id);
+                datos.setearParametro("@IdCategoria", articulo.Categoria.Id);
                 datos.setearParametro("@precio", articulo.Precio);
                 datos.setearParametro("@id", articulo.Id);
                 datos.ejecutarAccion();
@@ -145,18 +151,57 @@ namespace negocio
                 datos.setearParametro("@idArticulo", articulo.Id);
                 datos.ejecutarAccion();
 
-                // Insertar nuevas imágenes
-                foreach (var img in listaImagenes)
+                // Insertar nuevas imágenes si existen
+                if (imagenes != null && imagenes.Count > 0)
                 {
-                    datos.setearConsulta("INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (@idArticulo, @imagenUrl)");
-                    datos.setearParametro("@idArticulo", articulo.Id);
-                    datos.setearParametro("@imagenUrl", img.Url);
-                    datos.ejecutarAccion();
+                    foreach (Imagen img in imagenes)
+                    {
+                        try
+                        {
+                            AccesoDatos datosImagen = new AccesoDatos();
+                            datosImagen.setearConsulta("INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (@idArticulo, @imagenUrl)");
+                            datosImagen.setearParametro("@idArticulo", articulo.Id);
+                            datosImagen.setearParametro("@imagenUrl", img.Url);
+                            datosImagen.ejecutarAccion();
+                            datosImagen.cerrarConexion();
+                        }
+                        catch (Exception imgEx)
+                        {
+                            // Registrar el error de la imagen pero continuar con el flujo principal
+                            Console.WriteLine("Error al insertar imagen: " + imgEx.Message);
+                        }
+                    }
                 }
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw new Exception("Error al modificar el artículo: " + ex.Message, ex);
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public void eliminar(int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                // Eliminar el artículo
+                datos.setearConsulta("DELETE FROM ARTICULOS WHERE Id = @id;");
+                datos.setearParametro("@id", id);
+                datos.ejecutarAccion();
+
+                // Eliminar imágenes asociadas al artículo
+                datos.setearConsulta("DELETE FROM IMAGENES WHERE IdArticulo = @idArticulo");
+                datos.setearParametro("@idArticulo", id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al eliminar el artículo: " + ex.Message, ex);
             }
             finally
             {

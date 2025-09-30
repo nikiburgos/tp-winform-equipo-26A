@@ -41,6 +41,20 @@ namespace TP_WinForms_Equipo_26A
                 btnVerDetalle.UseColumnTextForButtonValue = true;
                 dgvArticulos.Columns.Add(btnVerDetalle);
 
+                // Agregar columna de botón para modificar
+                DataGridViewButtonColumn btnModificar = new DataGridViewButtonColumn();
+                btnModificar.HeaderText = "Modificar";
+                btnModificar.Text = "Modificar";
+                btnModificar.UseColumnTextForButtonValue = true;
+                dgvArticulos.Columns.Add(btnModificar);
+
+                // Agregar columna de botón para eliminar
+                DataGridViewButtonColumn btnEliminar = new DataGridViewButtonColumn();
+                btnEliminar.HeaderText = "Eliminar";
+                btnEliminar.Text = "Eliminar";
+                btnEliminar.UseColumnTextForButtonValue = true;
+                dgvArticulos.Columns.Add(btnEliminar);
+
                 // Vincular el evento CellClick
                 dgvArticulos.CellClick += dgvArticulos_CellClick;
 
@@ -57,24 +71,47 @@ namespace TP_WinForms_Equipo_26A
         {
             try
             {
-                // Verificar si se hizo clic en la columna de botones
-                if (e.RowIndex >= 0 && dgvArticulos.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
+                if (e.RowIndex >= 0)
                 {
-                    Articulo artSeleccionado = listaArticulos[e.RowIndex];
-                    if (artSeleccionado != null)
+                    // Verificar si se hizo clic en la columna de modificar
+                    if (dgvArticulos.Columns[e.ColumnIndex].HeaderText == "Modificar")
                     {
-                        FrmDetalleArticulos detalleForm = new FrmDetalleArticulos(artSeleccionado);
-                        detalleForm.ShowDialog();
+                        Articulo artSeleccionado = listaArticulos[e.RowIndex];
+                        FrmModificarArticulos modificarForm = new FrmModificarArticulos(artSeleccionado);
+                        modificarForm.ShowDialog();
                     }
+                    // Verificar si se hizo clic en la columna de eliminar
+                    else if (dgvArticulos.Columns[e.ColumnIndex].HeaderText == "Eliminar")
+                    {
+                        Articulo artSeleccionado = listaArticulos[e.RowIndex];
+                        DialogResult result = MessageBox.Show("¿Está seguro que desea eliminar este artículo?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (result == DialogResult.Yes)
+                        {
+                            try
+                            {
+                                ArticuloNegocio negocio = new ArticuloNegocio();
+                                negocio.eliminar(artSeleccionado.Id);
+                                MessageBox.Show("Artículo eliminado correctamente.");
+                                FrmListadoArticulos_Load(sender, e); // Recargar la lista
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Error al eliminar el artículo: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+                    // Verificar si se hizo clic en cualquier otra columna
                     else
                     {
-                        MessageBox.Show("No se pudo seleccionar el artículo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Articulo artSeleccionado = listaArticulos[e.RowIndex];
+                        FrmDetalleArticulos detalleForm = new FrmDetalleArticulos(artSeleccionado);
+                        detalleForm.ShowDialog();
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al intentar abrir el detalle: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
