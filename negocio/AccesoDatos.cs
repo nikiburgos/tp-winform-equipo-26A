@@ -26,7 +26,7 @@ namespace negocio
         public AccesoDatos()
         //1: server, el nombre de la instancia de la db: 2: nombre de la base de datos: 3: forma de conectarse
         { 
-            conexion = new SqlConnection("server=(localdb)\\MSSQLLocalDB; database=CATALOGO_P3_DB; integrated security=true");
+            conexion = new SqlConnection("server=localhost,1433; database=CATALOGO_P3_DB; user=sa;PASSWORD=Doc39805119");
             comando = new SqlCommand();
         }
 
@@ -72,7 +72,7 @@ namespace negocio
             {
                 throw ex;
             }
-        }   
+        }  
 
 
         public int ejecutarScalar()

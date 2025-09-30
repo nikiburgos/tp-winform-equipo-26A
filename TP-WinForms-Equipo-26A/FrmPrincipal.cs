@@ -28,11 +28,7 @@ namespace TP_WinForms_Equipo_26A
             ventana.ShowDialog();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            FrmBusquedaArticulos ventana = new FrmBusquedaArticulos();
-            ventana.ShowDialog();
-        }
+
 
         private void button3_Click(object sender, EventArgs e)
         {
