@@ -37,42 +37,57 @@ namespace TP_WinForms_Equipo_26A
 
         private void CargarImagen()
         {
+            if (articulo.Imagen != null && articulo.Imagen.Count > 0)
+            {
+                string url = articulo.Imagen[indiceImagenActual].Url;
+                CargarImagen(url);
+            }
+            else
+            {
+                MostrarImagenPorDefecto();
+            }
+        }
+
+        private void CargarImagen(string url)
+        {
             try
             {
-                if (articulo.Imagen != null && articulo.Imagen.Count > 0)
+                if (!string.IsNullOrEmpty(url))
                 {
-                    string url = articulo.Imagen[indiceImagenActual].Url;
-                    if (!string.IsNullOrEmpty(url))
+                    using (var client = new System.Net.WebClient())
                     {
-                        using (var client = new System.Net.WebClient())
+                        // Agregar un encabezado User-Agent para evitar restricciones del servidor
+                        client.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36");
+
+                        // Descargar la imagen como un stream
+                        var imageData = client.DownloadData(url);
+
+                        using (var stream = new System.IO.MemoryStream(imageData))
                         {
-                            // Agregar un encabezado User-Agent para evitar restricciones del servidor
-                            client.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36");
-
-                            // Descargar la imagen como un stream
-                            var imageData = client.DownloadData(url);
-
-                            using (var stream = new System.IO.MemoryStream(imageData))
-                            {
-                                pbImagen.Image = System.Drawing.Image.FromStream(stream);
-                            }
+                            pbImagen.Image = System.Drawing.Image.FromStream(stream);
                         }
-                    }
-                    else
-                    {
-                        pbImagen.Load("https://www1.lovethatdesign.com/wp-content/uploads/2022/01/placeholder-image.png");
                     }
                 }
                 else
                 {
-                    pbImagen.Load("https://www1.lovethatdesign.com/wp-content/uploads/2022/01/placeholder-image.png");
+                    MostrarImagenPorDefecto();
                 }
+            }
+            catch (System.Net.WebException webEx)
+            {
+                Console.WriteLine($"Error de red al cargar la imagen: {webEx.Message}");
+                MostrarImagenPorDefecto();
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error al cargar la imagen: {ex.Message}");
-                pbImagen.Load("https://www1.lovethatdesign.com/wp-content/uploads/2022/01/placeholder-image.png");
+                MostrarImagenPorDefecto();
             }
+        }
+
+        private void MostrarImagenPorDefecto()
+        {
+            pbImagen.Load("https://www1.lovethatdesign.com/wp-content/uploads/2022/01/placeholder-image.png");
         }
 
         private void btnSiguiente_Click(object sender, EventArgs e)

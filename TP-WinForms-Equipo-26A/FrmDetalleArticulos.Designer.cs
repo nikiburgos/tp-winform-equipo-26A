@@ -42,7 +42,6 @@
             this.lblPrecioTitle = new System.Windows.Forms.Label();
             this.lblMarcaTitle = new System.Windows.Forms.Label();
             this.lblCategoriaTitle = new System.Windows.Forms.Label();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,7 +99,7 @@
             // pbImagen
             // 
             this.pbImagen.Location = new System.Drawing.Point(151, 325);
-            this.pbImagen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbImagen.Margin = new System.Windows.Forms.Padding(4);
             this.pbImagen.Name = "pbImagen";
             this.pbImagen.Size = new System.Drawing.Size(356, 331);
             this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -110,7 +109,7 @@
             // btnSiguiente
             // 
             this.btnSiguiente.Location = new System.Drawing.Point(515, 485);
-            this.btnSiguiente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSiguiente.Margin = new System.Windows.Forms.Padding(4);
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.Size = new System.Drawing.Size(93, 37);
             this.btnSiguiente.TabIndex = 6;
@@ -121,7 +120,7 @@
             // btnAnterior
             // 
             this.btnAnterior.Location = new System.Drawing.Point(43, 485);
-            this.btnAnterior.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAnterior.Margin = new System.Windows.Forms.Padding(4);
             this.btnAnterior.Name = "btnAnterior";
             this.btnAnterior.Size = new System.Drawing.Size(93, 37);
             this.btnAnterior.TabIndex = 7;
@@ -132,7 +131,7 @@
             // btnVolver
             // 
             this.btnVolver.Location = new System.Drawing.Point(13, 13);
-            this.btnVolver.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnVolver.Margin = new System.Windows.Forms.Padding(4);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(64, 46);
             this.btnVolver.TabIndex = 8;
@@ -214,7 +213,7 @@
             this.Controls.Add(this.lblPrecioTitle);
             this.Controls.Add(this.lblDescripcionTitle);
             this.Controls.Add(this.lblNombreTitle);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmDetalleArticulos";
             this.Text = "Detalle del Artículo";
             this.Load += new System.EventHandler(this.FrmDetalleArticulos_Load);
@@ -240,6 +239,5 @@
         private System.Windows.Forms.Label lblPrecioTitle;
         private System.Windows.Forms.Label lblMarcaTitle;
         private System.Windows.Forms.Label lblCategoriaTitle;
-        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }
