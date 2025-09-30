@@ -53,8 +53,12 @@ namespace TP_WinForms_Equipo_26A
 
         private void button6_Click(object sender, EventArgs e)
         {
-            FrmDetalleArticulos ventana = new FrmDetalleArticulos();
-            ventana.ShowDialog();
+            FrmListadoArticulos listado = new FrmListadoArticulos(); listado.ShowDialog();
+            if (listado.ShowDialog() == DialogResult.OK && listado.ArticuloSeleccionado != null)
+            {
+                FrmDetalleArticulos detalle = new FrmDetalleArticulos(listado.ArticuloSeleccionado);
+                detalle.ShowDialog();
+            }
         }
     }
 }

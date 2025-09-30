@@ -67,8 +67,31 @@ namespace negocio
             {
                 throw ex;
             }
+        }   
+
+
+        public int ejecutarScalar()
+        {
+            comando.Connection = conexion;
+            try
+            {
+                conexion.Open();
+                //ejecuta una acción que no sea de lectura (insert, delete, update)
+                return (int)comando.ExecuteScalar();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
+
+        public void setearParametro(string nombre, object valor)
+        {
+            //Seteo de parametros recibidos para ejecutar acciones en BD (NombreTabla; Valor a insertar)
+            comando.Parameters.AddWithValue(nombre, valor);
+        }
         public void cerrarConexion()
         {
             //En caso de haber un lector activo cuando se llama al método, también se cierra junto con la conexión.
