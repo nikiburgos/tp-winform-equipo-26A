@@ -46,7 +46,7 @@ namespace TP_WinForms_Equipo_26A
                 // Botón Ver Detalle
                 DataGridViewButtonColumn btnVerDetalle = new DataGridViewButtonColumn();
                 btnVerDetalle.Name = "btnVerDetalle";
-                btnVerDetalle.HeaderText = "Acciones";
+                btnVerDetalle.HeaderText = "Descripción";
                 btnVerDetalle.Text = "Ver Detalle";
                 btnVerDetalle.UseColumnTextForButtonValue = true;
                 dgvArticulos.Columns.Add(btnVerDetalle);
@@ -58,6 +58,7 @@ namespace TP_WinForms_Equipo_26A
                 btnModificar.Text = "Modificar";
                 btnModificar.UseColumnTextForButtonValue = true;
                 dgvArticulos.Columns.Add(btnModificar);
+
 
                 // Botón Eliminar
                 DataGridViewButtonColumn btnEliminar = new DataGridViewButtonColumn();
@@ -97,13 +98,14 @@ namespace TP_WinForms_Equipo_26A
         {
             try
             {
-                if (e.RowIndex >= 0)
+               if (e.RowIndex >= 0)
                 {
                     if (dgvArticulos.Columns[e.ColumnIndex].Name == "btnModificar")
                     {
                         Articulo artSeleccionado = (Articulo)dgvArticulos.Rows[e.RowIndex].DataBoundItem;
                         FrmModificarArticulos modificarForm = new FrmModificarArticulos(artSeleccionado);
                         modificarForm.ShowDialog();
+                        FrmListadoArticulos_Load(sender, e); // Recargar la lista
                     }
                     else if (dgvArticulos.Columns[e.ColumnIndex].Name == "btnEliminar")
                     {
@@ -134,10 +136,11 @@ namespace TP_WinForms_Equipo_26A
                         FrmDetalleArticulos detalleForm = new FrmDetalleArticulos(artSeleccionado);
                         detalleForm.ShowDialog();
                     }
-                }
+               }
             }
             catch (Exception ex)
             {
+                if (e.RowIndex < -1)
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -187,5 +190,6 @@ namespace TP_WinForms_Equipo_26A
 
             dgvArticulos.DataSource = listaFiltrada;
         }
+
     }
 }

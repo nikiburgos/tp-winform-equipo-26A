@@ -93,7 +93,7 @@ namespace TP_WinForms_Equipo_26A
 
         private void MostrarImagenPorDefecto()
         {
-            pbImagen.Load("https://via.placeholder.com/300x200");
+            pbImagen.Load("https://cdn-icons-png.flaticon.com/512/13434/13434972.png");
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

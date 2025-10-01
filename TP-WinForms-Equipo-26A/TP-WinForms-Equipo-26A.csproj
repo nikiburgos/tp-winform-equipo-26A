@@ -105,6 +105,9 @@
     <EmbeddedResource Include="FrmAgregarArticulos.resx">
       <DependentUpon>FrmAgregarArticulos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCategorias.resx">
+      <DependentUpon>FrmCategorias.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmDetalleArticulos.resx">
       <DependentUpon>FrmDetalleArticulos.cs</DependentUpon>
     </EmbeddedResource>

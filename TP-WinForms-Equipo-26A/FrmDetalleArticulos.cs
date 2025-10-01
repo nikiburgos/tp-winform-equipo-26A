@@ -113,9 +113,7 @@ namespace TP_WinForms_Equipo_26A
             this.Hide(); // Ocultar el formulario en lugar de cerrarlo
         }
 
-        private void lblCategoria_Click(object sender, EventArgs e)
-        {
+        
 
-        }
     }
 }
